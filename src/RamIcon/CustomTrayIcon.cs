@@ -4,6 +4,7 @@ using System.Linq;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using TrayIconLibrary;
 using static TrayIconLibrary.WinApi;
 
@@ -95,6 +96,11 @@ namespace RamIcon
             string tooltip = String.Format("RAM:\n{1:F1} / {2:F1} GB ({0:F0}%)", memLoad, (memTotal - memAvailable) / 1073741824, memTotal / 1073741824);
             SetTooltip(tooltip);
             SetBalloon(TopMemoryConsumpsionProcesses(), "RamIcon");
+        }
+
+        public override void IconMouseDoubleClickAction()
+        {
+            Task.Run(() => Utils.StartProgram("taskmgr.exe"));
         }
 
         private string TopMemoryConsumpsionProcesses()

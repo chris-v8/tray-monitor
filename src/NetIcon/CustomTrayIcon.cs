@@ -41,7 +41,7 @@ namespace NetIcon
 
         public override void IconMouseDoubleClickAction()
         {
-            Task.Run(() => Utils.StartProgram("perfmon.exe", "/res"));
+            // double click does nothing for this icon
         }
 
         private void CheckNICList(object sender, EventArgs e)

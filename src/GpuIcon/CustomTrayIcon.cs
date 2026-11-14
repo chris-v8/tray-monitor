@@ -150,7 +150,7 @@ namespace GpuIcon
 
         public override void IconMouseDoubleClickAction()
         {
-            Task.Run(() => Utils.StartProgram("taskmgr.exe"));
+            // double click does nothing for this icon
         }
 
         public override void IconMouseClickAction()
