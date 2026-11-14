@@ -23,6 +23,8 @@ namespace BatteryIcon
             batteryForegroundOpacity.Value = settings.foregroundColor.A;
             batteryForegroundChargingText.Text = Utils.ColorToString(settings.foregroundChargingColor);
             batteryForegroundChargingOpacity.Value = settings.foregroundChargingColor.A;
+            batteryForegroundFullText.Text = Utils.ColorToString(settings.foregroundFullColor);
+            batteryForegroundFullOpacity.Value = settings.foregroundFullColor.A;
             batteryBackgroundText.Text = Utils.ColorToString(settings.backgroundColor);
             batteryBackgroundOpacity.Value = settings.backgroundColor.A;
             batteryBorderText.Text = Utils.ColorToString(settings.borderColor);
@@ -43,6 +45,7 @@ namespace BatteryIcon
             settings.scaling = Convert.ToInt32(batteryScaling.Checked);
             settings.foregroundColor = Utils.ColorFromString(batteryForegroundText.Text);
             settings.foregroundChargingColor = Utils.ColorFromString(batteryForegroundChargingText.Text);
+            settings.foregroundFullColor = Utils.ColorFromString(batteryForegroundFullText.Text);
             settings.backgroundColor = Utils.ColorFromString(batteryBackgroundText.Text);
             settings.borderColor = Utils.ColorFromString(batteryBorderText.Text);
             settings.updateInterval = (int)batteryInterval.Value;
@@ -75,6 +78,14 @@ namespace BatteryIcon
             batteryForegroundChargingText.Text = Utils.ColorToString(color);
         }
 
+        private void batteryForegroundFullButton_Click(object sender, EventArgs e)
+        {
+            colorDialog.Color = Utils.ColorFromString(batteryForegroundFullText.Text);
+            colorDialog.ShowDialog();
+            Color color = Color.FromArgb(batteryForegroundFullOpacity.Value, colorDialog.Color.R, colorDialog.Color.G, colorDialog.Color.B);
+            batteryForegroundFullText.Text = Utils.ColorToString(color);
+        }
+
         private void batteryBackgroundButton_Click(object sender, EventArgs e)
         {
             colorDialog.Color = Utils.ColorFromString(batteryBackgroundText.Text);
@@ -103,6 +114,13 @@ namespace BatteryIcon
             Color color = Utils.ColorFromString(batteryForegroundChargingText.Text);
             Color color2 = Color.FromArgb(batteryForegroundChargingOpacity.Value, color.R, color.G, color.B);
             batteryForegroundChargingText.Text = Utils.ColorToString(color2);
+        }
+
+        private void batteryForegroundFullOpacity_Scroll(object sender, EventArgs e)
+        {
+            Color color = Utils.ColorFromString(batteryForegroundFullText.Text);
+            Color color2 = Color.FromArgb(batteryForegroundFullOpacity.Value, color.R, color.G, color.B);
+            batteryForegroundFullText.Text = Utils.ColorToString(color2);
         }
 
         private void batteryBackgroundOpacity_Scroll(object sender, EventArgs e)

@@ -71,7 +71,15 @@ namespace BatteryIcon
             Color backgroundColor = settings.backgroundColor;
             Color borderColor = settings.borderColor;
 
-            using (Bitmap bitmap = new Bitmap(DrawText(batteryPercentage, new Font(iconFont, iconFontSize, FontStyle.Bold), foregroundColor, backgroundColor, borderColor)))
+            // at full charge show "Fu" instead of "100", in the Foreground (Full) color
+            string iconText = batteryPercentage;
+            if (powerStatus.BatteryLifePercent >= 1.0f)
+            {
+                iconText = "Fu";
+                foregroundColor = settings.foregroundFullColor;
+            }
+
+            using (Bitmap bitmap = new Bitmap(DrawText(iconText, new Font(iconFont, iconFontSize, FontStyle.Bold), foregroundColor, backgroundColor, borderColor)))
             {
                 ChangeIcon(bitmap, tooltip);
             }

@@ -65,6 +65,12 @@
             this.batteryForegroundChargingButton = new System.Windows.Forms.Button();
             this.batteryForegroundChargingOpacity = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.batteryForegroundFullText = new System.Windows.Forms.TextBox();
+            this.batteryForegroundFullButton = new System.Windows.Forms.Button();
+            this.batteryForegroundFullOpacity = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batteryInterval)).BeginInit();
             this.panel4.SuspendLayout();
@@ -76,6 +82,8 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batteryForegroundChargingOpacity)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.batteryForegroundFullOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // colorDialog
@@ -91,7 +99,7 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(378, 212);
+            this.buttonOk.Location = new System.Drawing.Point(378, 244);
             this.buttonOk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(104, 29);
@@ -103,7 +111,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(270, 212);
+            this.buttonCancel.Location = new System.Drawing.Point(270, 244);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(104, 29);
@@ -117,7 +125,7 @@
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.batteryInterval);
             this.panel5.Controls.Add(this.label40);
-            this.panel5.Location = new System.Drawing.Point(7, 167);
+            this.panel5.Location = new System.Drawing.Point(7, 199);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(475, 32);
             this.panel5.TabIndex = 57;
@@ -177,7 +185,7 @@
             this.panel4.Controls.Add(this.batteryBorderButton);
             this.panel4.Controls.Add(this.batteryBorderOpacity);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(7, 135);
+            this.panel4.Location = new System.Drawing.Point(7, 167);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(475, 32);
             this.panel4.TabIndex = 56;
@@ -240,7 +248,7 @@
             this.panel3.Controls.Add(this.batteryBackgroundButton);
             this.panel3.Controls.Add(this.batteryBackgroundOpacity);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(7, 103);
+            this.panel3.Location = new System.Drawing.Point(7, 135);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(475, 32);
             this.panel3.TabIndex = 55;
@@ -473,11 +481,75 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "Opacity";
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Controls.Add(this.batteryForegroundFullText);
+            this.panel7.Controls.Add(this.batteryForegroundFullButton);
+            this.panel7.Controls.Add(this.batteryForegroundFullOpacity);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(6, 103);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(475, 32);
+            this.panel7.TabIndex = 59;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 15);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Foreground (Full)";
+            // 
+            // batteryForegroundFullText
+            // 
+            this.batteryForegroundFullText.Location = new System.Drawing.Point(121, 4);
+            this.batteryForegroundFullText.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.batteryForegroundFullText.Name = "batteryForegroundFullText";
+            this.batteryForegroundFullText.Size = new System.Drawing.Size(94, 23);
+            this.batteryForegroundFullText.TabIndex = 25;
+            // 
+            // batteryForegroundFullButton
+            // 
+            this.batteryForegroundFullButton.Location = new System.Drawing.Point(224, 3);
+            this.batteryForegroundFullButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.batteryForegroundFullButton.Name = "batteryForegroundFullButton";
+            this.batteryForegroundFullButton.Size = new System.Drawing.Size(49, 25);
+            this.batteryForegroundFullButton.TabIndex = 29;
+            this.batteryForegroundFullButton.Text = "Color";
+            this.batteryForegroundFullButton.UseVisualStyleBackColor = true;
+            this.batteryForegroundFullButton.Click += new System.EventHandler(this.batteryForegroundFullButton_Click);
+            // 
+            // batteryForegroundFullOpacity
+            // 
+            this.batteryForegroundFullOpacity.AutoSize = false;
+            this.batteryForegroundFullOpacity.Location = new System.Drawing.Point(338, 6);
+            this.batteryForegroundFullOpacity.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.batteryForegroundFullOpacity.Maximum = 255;
+            this.batteryForegroundFullOpacity.Name = "batteryForegroundFullOpacity";
+            this.batteryForegroundFullOpacity.Size = new System.Drawing.Size(132, 18);
+            this.batteryForegroundFullOpacity.TabIndex = 32;
+            this.batteryForegroundFullOpacity.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.batteryForegroundFullOpacity.Scroll += new System.EventHandler(this.batteryForegroundFullOpacity_Scroll);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(287, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 15);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Opacity";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(486, 246);
+            this.ClientSize = new System.Drawing.Size(486, 278);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -509,6 +581,9 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batteryForegroundChargingOpacity)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.batteryForegroundFullOpacity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,5 +627,11 @@
         private System.Windows.Forms.Button batteryForegroundChargingButton;
         private System.Windows.Forms.TrackBar batteryForegroundChargingOpacity;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox batteryForegroundFullText;
+        private System.Windows.Forms.Button batteryForegroundFullButton;
+        private System.Windows.Forms.TrackBar batteryForegroundFullOpacity;
+        private System.Windows.Forms.Label label4;
     }
 }

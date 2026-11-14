@@ -23,6 +23,12 @@ namespace BatteryIcon
             set { SetValueByMethod(MethodBase.GetCurrentMethod(), value); }
         }
 
+        public Color foregroundFullColor
+        {
+            get { return GetValueByMethod_Color(MethodBase.GetCurrentMethod(), "#FF116417"); }
+            set { SetValueByMethod(MethodBase.GetCurrentMethod(), value); }
+        }
+
         public Color backgroundColor
         {
             get { return GetValueByMethod_Color(MethodBase.GetCurrentMethod(), "#B0525252"); }
