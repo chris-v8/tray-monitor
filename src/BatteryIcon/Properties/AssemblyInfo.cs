@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BatteryIcon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("strayge")]
+[assembly: AssemblyCompany("chris-v8")]
 [assembly: AssemblyProduct("BatteryIcon")]
-[assembly: AssemblyCopyright("Copyright © 2025 strayge")]
+[assembly: AssemblyCopyright("Copyright © 2026 chris-v8, © 2017 Kenneth Schnall")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.6.0.0")]
-[assembly: AssemblyFileVersion("2.6.0.0")]
+[assembly: AssemblyVersion("2.6.0.1")]
+[assembly: AssemblyFileVersion("2.6.0.1")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
