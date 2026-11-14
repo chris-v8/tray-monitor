@@ -2,31 +2,56 @@
 
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_tray.png" width=70%>
 
-See your system's loading in tray.  
+See your system's load in the Windows tray.
 
-Different icons for:  
-- battery status (with percentage, remaining time and charging status)
+This is a fork of [strayge/tray-monitor](https://github.com/strayge/tray-monitor). See [What's different](#whats-different-in-this-fork).
+
+Separate icons for:
+- battery status (percentage, remaining time and charging status)
 - CPU (including color marking for throttling)
 - GPU
 - memory
 - network I/O
 - disk I/O
 
-Single click uppon Memory icons open balloon with top processes.  
+A single click on the Memory icon opens a balloon with the top processes.
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_balloon.png" width=50%>
 
-Double clicks opens Task Manager / Resource Monitor.
+A double click opens Task Manager / Resource Monitor.
 
-All colors, update intervals and some other parameters can be changed via GUI settings.  
+All colors, update intervals and some other parameters can be changed in the settings window (right click on an icon).
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_settings.png" width=70%>
+
+## What's different in this fork
+
+- **Battery:** at 100% the icon shows **"Fu"** instead of "100", in its own color (default `#116417`, changeable in settings as *Foreground (Full)*).
+- **Installer:** pick icons from a checklist with an "All icons" box; running icons are closed before updating; uninstall removes autostart shortcuts and offers to delete saved settings.
 
 ## Installing
 
-* [Download the latest release](https://github.com/strayge/tray-monitor/releases)
-* run .exe installer
-* To enable/disable autostart just right click uppon icon
+- [Download the latest release](https://github.com/chris-v8/tray-monitor/releases)
+- Run `TrayMonitor-Setup-<version>.exe` and pick the icons you want (no admin rights needed; installs to `%LOCALAPPDATA%\Programs\TrayMonitor`)
+- Or use the portable zip and run the `.exe` files directly
+- Autostart can be turned on in the installer or later from an icon's right-click menu
+
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_menu.png" width=20%>
 
-## Compiling
+The installer upgrades an existing TrayMonitor installation, including the original one. Settings are kept.
 
-This project was compiled with Visual Studio 2026.
+## Building
+
+Requirements:
+- Visual Studio 2022/2026 or Build Tools with the **.NET desktop development** workload (.NET Framework 4.8)
+- [Inno Setup 6](https://jrsoftware.org/isinfo.php) for the installer
+
+Build all icons, the installer and the portable zip:
+
+```bat
+setup\build_all.bat
+```
+
+Output goes to `bin\Release\`.
+
+## License
+
+MIT, see [LICENSE](LICENSE). Original work by [strayge](https://github.com/strayge/tray-monitor).
