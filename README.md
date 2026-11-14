@@ -17,7 +17,7 @@ Separate icons for:
 A single click on the Memory icon opens a balloon with the top processes.
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_balloon.png" width=50%>
 
-A double click opens Task Manager / Resource Monitor.
+A double click on the CPU or Memory icon opens Task Manager; on the Disk icon it opens Resource Monitor.
 
 All colors, update intervals and some other parameters can be changed in the settings window (right click on an icon).
 <img src="https://raw.githubusercontent.com/strayge/tray-monitor/master/screenshots/readme_settings.png" width=70%>
@@ -26,6 +26,7 @@ All colors, update intervals and some other parameters can be changed in the set
 
 - **Battery:** at 100% the icon shows **"Fu"** instead of "100", in its own color (default `#116417`, changeable in settings as *Foreground (Full)*).
 - **Installer:** pick icons from a checklist with an "All icons" box; running icons are closed before updating; uninstall removes autostart shortcuts and offers to delete saved settings.
+- **Double-click:** the CPU and Memory icons open Task Manager, the Disk icon opens Resource Monitor (this was disabled in the original).
 
 ## Installing
 
