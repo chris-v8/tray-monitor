@@ -15,7 +15,7 @@ namespace CpuIcon
         PerformanceCounter cpuCounter;
         PerformanceCounter cpuPerformanceCounter;
         int baseFrequencyMhz = -1;
-        List<Tuple<float, bool>> measurents = new List<Tuple<float, bool>>();
+        List<float> measurents = new List<float>();
 
         public CustomTrayIcon()
         {
@@ -94,7 +94,6 @@ namespace CpuIcon
         public override void UpdateIconTick(object sender = null, EventArgs e = null)
         {
             Color foregroundColor = settings.foregroundColor;
-            Color foregroundThrottliingColor = settings.foregroundThrottlingColor;
             Color backgroundColor = settings.backgroundColor;
             Color borderColor = settings.borderColor;
 
@@ -102,12 +101,6 @@ namespace CpuIcon
 
             float newValue = GetCpuUsage();
             int freq = GetCpuFreqMhz();
-
-            bool isThrottling = false;
-            if ((freq > 0) && (freq < 800) && (newValue > 40))
-            {
-                isThrottling = true;
-            }
 
             int iconSize = GetTrayIconsSize();
             using (Bitmap bitmap = new Bitmap(iconSize, iconSize))
@@ -117,7 +110,7 @@ namespace CpuIcon
                     graphics.Clear(backgroundColor);
 
                     
-                    measurents.Add(Tuple.Create(newValue, isThrottling));
+                    measurents.Add(newValue);
                     if (measurents.Count > (bitmap.Width / pointWidth))
                     {
                         measurents.RemoveAt(0);
@@ -125,26 +118,20 @@ namespace CpuIcon
 
                     for (int i = measurents.Count - 1; i >= 0; i--)
                     {
-                        float value = measurents[i].Item1;
-                        bool wasThrottling = measurents[i].Item2;
+                        float value = measurents[i];
                         var pos = bitmap.Width - (measurents.Count - 1 - i) * pointWidth;
 
-                        Color color = foregroundColor;
-                        if (wasThrottling)
-                        {
-                            color = foregroundThrottliingColor;
-                        }
-                        graphics.DrawLine(new Pen(color, pointWidth), pos, bitmap.Height, pos, bitmap.Height - bitmap.Height * value / 100);
+                        graphics.DrawLine(new Pen(foregroundColor, pointWidth), pos, bitmap.Height, pos, bitmap.Height - bitmap.Height * value / 100);
                     }
 
                     int borderWidth = 1;
                     graphics.DrawRectangle(new Pen(borderColor, borderWidth), 0, 0, (int)bitmap.Width - borderWidth, (int)bitmap.Height - borderWidth);
 
                     graphics.Save();
-                    string tooltip = String.Format("CPU: {0:F0}%\nAvg: {1:F0}%", newValue, measurents.Average(x => x.Item1));
+                    string tooltip = String.Format("CPU: {0:F0}%\nAvg: {1:F0}%", newValue, measurents.Average());
                     if (freq > 0)
                     {
-                        tooltip += String.Format("\n{0} Mhz", freq);
+                        tooltip += String.Format("\n{0:F2} GHz", freq / 1000.0);
                     }
                     ChangeIcon(bitmap, tooltip);
                 }

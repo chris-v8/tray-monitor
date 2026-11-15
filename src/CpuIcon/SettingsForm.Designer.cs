@@ -54,12 +54,6 @@
             this.cpuForegroundButton = new System.Windows.Forms.Button();
             this.cpuForegroundOpacity = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cpuForegroundThrottlingText = new System.Windows.Forms.TextBox();
-            this.cpuForegroundThrottlingButton = new System.Windows.Forms.Button();
-            this.cpuForegroundThrottlingOpacity = new System.Windows.Forms.TrackBar();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuInterval)).BeginInit();
             this.panel9.SuspendLayout();
@@ -68,8 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cpuBackgroundOpacity)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuForegroundOpacity)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuForegroundThrottlingOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // colorDialog
@@ -85,7 +77,7 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(609, 302);
+            this.buttonOk.Location = new System.Drawing.Point(609, 246);
             this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(182, 51);
@@ -97,7 +89,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(418, 302);
+            this.buttonCancel.Location = new System.Drawing.Point(418, 246);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(182, 51);
@@ -111,7 +103,7 @@
             this.panel10.Controls.Add(this.label4);
             this.panel10.Controls.Add(this.cpuInterval);
             this.panel10.Controls.Add(this.label1);
-            this.panel10.Location = new System.Drawing.Point(4, 234);
+            this.panel10.Location = new System.Drawing.Point(4, 178);
             this.panel10.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(788, 56);
@@ -172,7 +164,7 @@
             this.panel9.Controls.Add(this.cpuBorderButton);
             this.panel9.Controls.Add(this.cpuBorderOpacity);
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(4, 178);
+            this.panel9.Location = new System.Drawing.Point(4, 122);
             this.panel9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(788, 56);
@@ -236,7 +228,7 @@
             this.panel8.Controls.Add(this.cpuBackgroundButton);
             this.panel8.Controls.Add(this.cpuBackgroundOpacity);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(4, 122);
+            this.panel8.Location = new System.Drawing.Point(4, 66);
             this.panel8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(788, 56);
@@ -357,76 +349,11 @@
             this.label6.TabIndex = 57;
             this.label6.Text = "Opacity";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.cpuForegroundThrottlingText);
-            this.panel1.Controls.Add(this.cpuForegroundThrottlingButton);
-            this.panel1.Controls.Add(this.cpuForegroundThrottlingOpacity);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(4, 66);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 56);
-            this.panel1.TabIndex = 81;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 14);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 30);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "Throttling";
-            // 
-            // cpuForegroundThrottlingText
-            // 
-            this.cpuForegroundThrottlingText.Location = new System.Drawing.Point(172, 7);
-            this.cpuForegroundThrottlingText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cpuForegroundThrottlingText.Name = "cpuForegroundThrottlingText";
-            this.cpuForegroundThrottlingText.Size = new System.Drawing.Size(162, 35);
-            this.cpuForegroundThrottlingText.TabIndex = 49;
-            // 
-            // cpuForegroundThrottlingButton
-            // 
-            this.cpuForegroundThrottlingButton.Location = new System.Drawing.Point(352, 5);
-            this.cpuForegroundThrottlingButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cpuForegroundThrottlingButton.Name = "cpuForegroundThrottlingButton";
-            this.cpuForegroundThrottlingButton.Size = new System.Drawing.Size(86, 44);
-            this.cpuForegroundThrottlingButton.TabIndex = 53;
-            this.cpuForegroundThrottlingButton.Text = "Color";
-            this.cpuForegroundThrottlingButton.UseVisualStyleBackColor = true;
-            this.cpuForegroundThrottlingButton.Click += new System.EventHandler(this.cpuForegroundThrottlingButton_Click);
-            // 
-            // cpuForegroundThrottlingOpacity
-            // 
-            this.cpuForegroundThrottlingOpacity.AutoSize = false;
-            this.cpuForegroundThrottlingOpacity.Location = new System.Drawing.Point(551, 10);
-            this.cpuForegroundThrottlingOpacity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cpuForegroundThrottlingOpacity.Maximum = 255;
-            this.cpuForegroundThrottlingOpacity.Name = "cpuForegroundThrottlingOpacity";
-            this.cpuForegroundThrottlingOpacity.Size = new System.Drawing.Size(231, 32);
-            this.cpuForegroundThrottlingOpacity.TabIndex = 55;
-            this.cpuForegroundThrottlingOpacity.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.cpuForegroundThrottlingOpacity.Scroll += new System.EventHandler(this.cpuForegroundThrottlingOpacity_Scroll);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(462, 14);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 30);
-            this.label10.TabIndex = 57;
-            this.label10.Text = "Opacity";
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(796, 360);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(796, 304);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
@@ -451,9 +378,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuForegroundOpacity)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuForegroundThrottlingOpacity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,11 +410,5 @@
         private System.Windows.Forms.Button cpuForegroundButton;
         private System.Windows.Forms.TrackBar cpuForegroundOpacity;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox cpuForegroundThrottlingText;
-        private System.Windows.Forms.Button cpuForegroundThrottlingButton;
-        private System.Windows.Forms.TrackBar cpuForegroundThrottlingOpacity;
-        private System.Windows.Forms.Label label10;
     }
 }

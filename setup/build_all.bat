@@ -7,21 +7,24 @@ rem         bin\Release\TrayMonitor-Portable-[version].zip
 setlocal
 cd /d "%~dp0\.."
 
+rem Command output goes through a temp file instead of for /f ('command'):
+rem for /f runs the command in a child cmd, which also runs the user's cmd
+rem AutoRun (e.g. "cls") and mixes its output into the result.
+set "TMPF=%TEMP%\traymonitor_build_%RANDOM%.txt"
+
 rem --- version ---
 set "VER=%~1"
 if "%VER%"=="" (
-  for /f "tokens=3" %%v in ('findstr /c:"#define MyAppVersion" setup\config.iss') do set "VER=%%~v"
+  findstr /c:"#define MyAppVersion" setup\config.iss > "%TMPF%"
+  for /f "usebackq tokens=3" %%v in ("%TMPF%") do set "VER=%%~v"
 )
 echo === TrayMonitor %VER% ===
 
 rem --- find MSBuild (works in a normal command prompt, no Developer Prompt needed) ---
 set "MSBUILD="
-for /f "delims=" %%m in ('where msbuild 2^>nul') do if not defined MSBUILD set "MSBUILD=%%m"
-if defined MSBUILD goto :have_msbuild
+where msbuild > "%TMPF%" 2>nul && set /p MSBUILD=<"%TMPF%"
 set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
-if not exist "%VSWHERE%" goto :have_msbuild
-for /f "usebackq delims=" %%m in (`"%VSWHERE%" -latest -prerelease -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) do if not defined MSBUILD set "MSBUILD=%%m"
-:have_msbuild
+if not defined MSBUILD if exist "%VSWHERE%" "%VSWHERE%" -latest -prerelease -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe > "%TMPF%" && set /p MSBUILD=<"%TMPF%"
 if not defined MSBUILD (
   echo ERROR: MSBuild not found. Install Visual Studio or Build Tools with ".NET desktop development".
   goto :fail
@@ -32,7 +35,8 @@ set "ISCC="
 if exist "%ProgramFiles(x86)%\Inno Setup 6\ISCC.exe" set "ISCC=%ProgramFiles(x86)%\Inno Setup 6\ISCC.exe"
 if not defined ISCC if exist "%ProgramFiles%\Inno Setup 6\ISCC.exe" set "ISCC=%ProgramFiles%\Inno Setup 6\ISCC.exe"
 if not defined ISCC if exist "%LOCALAPPDATA%\Programs\Inno Setup 6\ISCC.exe" set "ISCC=%LOCALAPPDATA%\Programs\Inno Setup 6\ISCC.exe"
-if not defined ISCC for /f "delims=" %%i in ('where iscc 2^>nul') do if not defined ISCC set "ISCC=%%i"
+if not defined ISCC where iscc > "%TMPF%" 2>nul && set /p ISCC=<"%TMPF%"
+if exist "%TMPF%" del "%TMPF%"
 if not defined ISCC (
   echo ERROR: Inno Setup 6 not found. Install it with:  choco install innosetup -y
   goto :fail
@@ -67,6 +71,7 @@ if not defined CI pause
 exit /b 0
 
 :fail
+if exist "%TMPF%" del "%TMPF%"
 echo.
 echo === BUILD FAILED ===
 if not defined CI pause

@@ -8,7 +8,7 @@ This is a fork of [strayge/tray-monitor](https://github.com/strayge/tray-monitor
 
 Separate icons for:
 - battery status (percentage, remaining time and charging status)
-- CPU (including color marking for throttling)
+- CPU
 - GPU
 - memory
 - network I/O
@@ -26,6 +26,7 @@ All colors, update intervals and some other parameters can be changed in the set
 
 - **Battery:** at 100% the icon shows **"Fu"** instead of "100", in its own color (default `#116417`, changeable in settings as *Foreground (Full)*).
 - **Installer:** pick icons from a checklist with an "All icons" box; running icons are closed before updating; uninstall removes autostart shortcuts and offers to delete saved settings.
+- **CPU:** the tooltip shows the real clock speed in GHz (the original estimated it and was far off on 64-bit). The throttling color is gone: it never triggered with real clock readings.
 - **Double-click:** the CPU and Memory icons open Task Manager, the Disk icon opens Resource Monitor (this was disabled in the original).
 
 ## Installing

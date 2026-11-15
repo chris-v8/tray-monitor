@@ -17,12 +17,6 @@ namespace CpuIcon
             set { SetValueByMethod(MethodBase.GetCurrentMethod(), value); }
         }
 
-        public Color foregroundThrottlingColor
-        {
-            get { return GetValueByMethod_Color(MethodBase.GetCurrentMethod(), "#FFFF0000"); }
-            set { SetValueByMethod(MethodBase.GetCurrentMethod(), value); }
-        }
-
         public Color backgroundColor
         {
             get { return GetValueByMethod_Color(MethodBase.GetCurrentMethod(), "#00000000"); }
