@@ -30,7 +30,7 @@ namespace TrayIconLibrary
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.UseShellExecute = true;
-                startInfo.FileName = path;
+                startInfo.FileName = ResolveSystemProgram(path);
                 startInfo.Arguments = args;
                 Process.Start(startInfo);
             }
@@ -38,6 +38,26 @@ namespace TrayIconLibrary
             {
                 // e.g. the UAC prompt was cancelled: do nothing
             }
+        }
+
+        // A 32-bit program on 64-bit Windows is silently redirected to the 32-bit
+        // copies of system tools in SysWOW64. The 32-bit Task Manager saves its
+        // layout in a format the normal one can't read (and vice versa), so its
+        // window keeps resetting to the compact view. "Sysnative" reaches the
+        // real 64-bit System32 folder instead.
+        private static string ResolveSystemProgram(string fileName)
+        {
+            if (Environment.Is64BitOperatingSystem && !Environment.Is64BitProcess
+                && fileName.IndexOfAny(new[] { '\\', '/' }) < 0)
+            {
+                string windir = Environment.GetEnvironmentVariable("windir") ?? @"C:\Windows";
+                string native = System.IO.Path.Combine(windir, "Sysnative", fileName);
+                if (System.IO.File.Exists(native))
+                {
+                    return native;
+                }
+            }
+            return fileName;
         }
 
         public static int CpuFreqMhz(int numIterations = 10000)
