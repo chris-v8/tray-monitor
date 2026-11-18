@@ -361,6 +361,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RamIcon Settings";
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();

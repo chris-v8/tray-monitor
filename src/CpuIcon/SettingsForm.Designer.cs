@@ -365,6 +365,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CpuIcon Settings";
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();

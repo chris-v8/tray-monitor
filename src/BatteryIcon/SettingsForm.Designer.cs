@@ -563,6 +563,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BatteryIcon Settings";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
