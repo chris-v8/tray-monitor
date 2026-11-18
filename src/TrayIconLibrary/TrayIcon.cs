@@ -39,13 +39,22 @@ namespace TrayIconLibrary
             {
                 Checked = Autostart.IsEnabled()
             };
-            notifyIcon.ContextMenu = new ContextMenu(new[]
+            var items = new System.Collections.Generic.List<MenuItem>
             {
                 contextMenuAutostartItem,
                 new MenuItem("-"),
-                new MenuItem("&Settings", ContextMenuSettings),
-                new MenuItem("E&xit", ContextMenuExit),
-            });
+            };
+            items.AddRange(CustomContextMenuItems());
+            items.Add(new MenuItem("&Settings", ContextMenuSettings));
+            items.Add(new MenuItem("E&xit", ContextMenuExit));
+            notifyIcon.ContextMenu = new ContextMenu(items.ToArray());
+        }
+
+        // extra items shown above "Settings"
+        // (called from the constructor, so don't use fields of the derived class here)
+        protected virtual MenuItem[] CustomContextMenuItems()
+        {
+            return new MenuItem[0];
         }
 
         private void ContextMenuExit(object sender, EventArgs e)

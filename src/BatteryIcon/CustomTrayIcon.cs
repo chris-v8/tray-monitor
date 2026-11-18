@@ -8,6 +8,7 @@ namespace BatteryIcon
     class CustomTrayIcon: TrayIcon
     {
         private CustomSettings settings;
+        private DetailsForm detailsForm;
 
         public CustomTrayIcon()
         {
@@ -23,6 +24,25 @@ namespace BatteryIcon
             // immediatly see changes
             SetUpdateInterval(settings.updateInterval);
             UpdateIconTick();
+        }
+
+        protected override MenuItem[] CustomContextMenuItems()
+        {
+            return new[] { new MenuItem("&Details", ContextMenuDetails) };
+        }
+
+        private void ContextMenuDetails(object sender, EventArgs e)
+        {
+            // one window at a time
+            if (detailsForm == null || detailsForm.IsDisposed)
+            {
+                detailsForm = new DetailsForm();
+                detailsForm.Show();
+            }
+            else
+            {
+                detailsForm.Activate();
+            }
         }
 
         public override void UpdateIconTick(object sender = null, EventArgs e = null)
@@ -59,6 +79,12 @@ namespace BatteryIcon
             {
                 tooltip += " (charging)";
                 foregroundColor = settings.foregroundChargingColor;
+
+                BatteryInfo.State state;
+                if (BatteryInfo.TryGetState(out state) && state.RateMw > 0)
+                {
+                    tooltip += String.Format("\nCharge rate: {0:F1} W", state.RateMw.Value / 1000.0);
+                }
             }
             else if (isConnected)
             {
